@@ -20,6 +20,9 @@ const Header = (props) => {
             <li >
                 <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/passwordCheck">password check</NavLink>
             </li>
+            <li >
+                <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/posts">posts</NavLink>
+            </li>
         </ul>
     </header>
   )

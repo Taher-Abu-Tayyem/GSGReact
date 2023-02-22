@@ -19,18 +19,23 @@ function App() {
     {path:'/counters',element:<Counters/>},
     {path:'/TodoList',element:<TodoList/>},
     {path:'/passwordCheck',element:<TaskForm/>},
-    {path:'/posts',element:<Post/>},
-    {path:'/posts/:id',element:
+
+    {path:'/posts/:id',element:<Post/>},
+    {path:'/posts',element:
      <ul>
     {posts.map(item=> <li><Link to={`/Posts/${item.id}`} >post {item.id}</Link></li>)} 
     </ul>} ,
     {path:'*',element:<h1>page not found 404</h1>},
   ])
 
+  
+    
+
   return (
     <div className="App">
       <Header/>
       {router}
+
     {/*
       <Routes>
         <Route path='/' element={<div>
