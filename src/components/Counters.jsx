@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import IdCounter from './IdCounter'
+import React, { Component } from 'react';
+import IdCounter from './IdCounter';
 
 const counters =[
     {id:1,count:0,steps:1},
