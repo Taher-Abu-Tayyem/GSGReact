@@ -10,20 +10,25 @@ import TaskForm from './pages/TaskForm';
 import { Routes,Route,Link, useRoutes } from 'react-router-dom';
 import TodoList from './mock/TodoList';
 import Post from './pages/Post';
+import Todo from './pages/Todo';
+import TodoDetails from './pages/TodoDetails';
+import ApiForm from './pages/ApiForm';
 import {posts} from './mock/Posts';
 
 function App() {
   const router=useRoutes([
     {path:'/',element:<h1>home</h1>},
     {path:'/Form',element:<Form/>},
-    {path:'/counters',element:<Counters/>},
+    {path:'/ApiForm',element:<ApiForm/>},
+    {path:'/counters',element:<Counters/>}, 
     {path:'/TodoList',element:<TodoList/>},
     {path:'/passwordCheck',element:<TaskForm/>},
-
+    {path:'/todo',element:<Todo/>},
+    {path:'/todo/:id',element:<TodoDetails/>},
     {path:'/posts/:id',element:<Post/>},
     {path:'/posts',element:
      <ul>
-    {posts.map(item=> <li><Link to={`/Posts/${item.id}`} >post {item.id}</Link></li>)} 
+    {posts.map(item=> <li key={item.id}><Link to={`/Posts/${item.id}`} >post {item.id}</Link></li>)} 
     </ul>} ,
     {path:'*',element:<h1>page not found 404</h1>},
   ])
@@ -75,6 +80,7 @@ function App() {
         <TaskForm/>
         <IdCounter/>
        <TodoList/>*/}
+        
     </div>
   );
 }

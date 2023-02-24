@@ -9,10 +9,13 @@ const Header = (props) => {
                 <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/">home</NavLink>
             </li>
             <li >
+                <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/ApiForm">ApiForm</NavLink>
+            </li>
+            <li >
                 <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/counters">counters</NavLink>
             </li>
             <li >
-                <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/TodoList">todo</NavLink>
+                <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/TodoList">todoList</NavLink>
             </li>
             <li >
                 <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/form">form</NavLink>
@@ -22,6 +25,9 @@ const Header = (props) => {
             </li>
             <li >
                 <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/posts">posts</NavLink>
+            </li>
+            <li >
+                <NavLink style={({isActive})=>(isActive ?{color:"red"}:{})} to="/todo">todo</NavLink>
             </li>
         </ul>
     </header>

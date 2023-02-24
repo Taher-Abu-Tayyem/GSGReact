@@ -18,8 +18,9 @@ function TodoList() {
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
-
+  
   return (
+    
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
