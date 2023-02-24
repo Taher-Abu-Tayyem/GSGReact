@@ -20,6 +20,7 @@ export default class ApiForm extends Component {
     password:'',
     isLoggingin:false,
     isLoading:false,
+    errors:[], 
   }
 
   schema = object().shape({
@@ -34,19 +35,25 @@ export default class ApiForm extends Component {
      this.setState({isLoading:true})
      this.schema
    .validate({
-     email:"moh@mog.com",password:"123"},{abortEarly: false })
-     .then(async(email,password)=>{
-        console.log(email,password);
-       const res= await axios.post('https://dummyjson.com/auth/login',{
-        username: email,
-        password,
-        });
-        console.log(res);
-        if(res) this.setState({isLoggingin:true})
-    })
-     .catch((e)=>console.log(e.errors))
-     .finally(()=>this.setState({isLoading:false}));  
-   }
+     email:this.state.email,password:this.state.password},{abortEarly: false })
+     .then(async()=>{
+         
+            const res=await axios.post('https://dummyjson.com/auth/login',{username:this.state.email,password:this.state.password});
+            console.log(res);
+            if(res) this.setState({isLoggingin:true})
+        })
+        
+        .catch(error => console.log(error))
+        .finally(()=>this.setState({isLoading:false}));  
+    //  .catch((error)=>{
+      
+    // if(error.errors)
+    // {this.setState({errors:error.errors});   
+    //   }else{
+    //     this.setState({errors:[error.message]});
+    // })
+   
+   };
   
   handleChangeInput=(e)=>{
      const{value,id}=e.target;
@@ -55,7 +62,7 @@ export default class ApiForm extends Component {
   render() {
     return (
       <form onSubmit={(e) => this.handleSubmit(e)}>
-      <div>  {this.state.error}  </div>
+      <div>  {this.state.errors.map((error=> <span key={error}>{error}</span>))}  </div>
         <br/>
         <div>  <label htmlFor="email">Email</label>
         <input id='email' type='text' placeholder='enter email' onChange={this.handleChangeInput} value={this.state.email}/>
